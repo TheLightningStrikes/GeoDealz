@@ -1,0 +1,55 @@
+ .dark {
+	background: #1a1a1a;
+	color: #fff;
+ }
+ 
+ .light {
+	background: #fff;
+	color: #000;
+ }
+ 
+ .light a {
+	color: #00abec;
+	
+ }
+ 
+ .light a:visited {
+	color: #00abec;
+ }
+ 
+ .light a:hover {
+	color: #1a1a1a;
+ }
+  
+ .blue {
+	background: #00abec;
+	color: #fff;
+ }
+ 
+ a {
+	color: white;
+ }
+ 
+ a:hover {
+	color: #00abec;
+ }
+ 
+ .home_item {
+	background-color: #00abec; 
+	color: white;
+ }
+ 
+ .stats {
+	background-color: #00abec;
+ }
+ 
+ .stats_table .even{
+	background: white;
+	color: black;
+ }
+  .stats_table .odd{
+	color: black;
+ }
+ .stats_table thead{
+	background: #1a1a1a;
+ }

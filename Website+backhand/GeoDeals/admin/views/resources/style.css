@@ -1,0 +1,278 @@
+ body {
+	background-image: url('http://localhost/willemturkstra.nl/images/under_construction.png');
+	background-size: 316px 100px;
+	background-color: #525252;
+	background-repeat: repeat-x;
+	background-position: 0px 200px;
+	margin: 0;
+	padding: 0;
+	font-family: "Segoe UI Light","Segoe WPC","Segoe UI",
+              Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
+	font-size: 16px;
+	
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding: 0;
+	margin: 0;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+#wrapper{
+	width: 960px;
+	margin: 0px auto;
+}
+
+div.top{
+	height: 83px;
+	padding-top: 17px;
+	padding-right: 10px;
+	
+}
+
+div.top .container {
+	height: 43px;
+	width: 820px;
+	float: left;
+}
+
+div.top .user {
+	float: left;
+	width: 120px;
+}
+
+div.top ul {
+	clear: both;	
+}
+
+div.top ul {
+	margin-right: 20px;
+}
+
+div.top ul.menu li
+{
+	list-style-type: none;
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+div.banner { 
+	position: relative; 
+	height: 300px; 
+}
+div.banner ul{
+	padding: 0;
+	margin: 0;
+}
+div.banner li { 
+	list-style: none; 
+}
+div.banner ul li { 
+	float: left;
+}
+
+.banner .dots {
+	position: absolute;
+	right: 40px;
+	bottom: 20px;
+}
+.banner .dots li {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 0 4px;
+	
+	text-indent: -999em;
+	
+	border: 2px solid #fff;
+	border-radius: 6px;
+	
+	cursor: pointer;
+	opacity: .4;
+	
+	-webkit-transition: background .5s, opacity .5s;
+	-moz-transition: background .5s, opacity .5s;
+	transition: background .5s, opacity .5s;
+}
+.banner .dots li.active {
+	background: #fff;
+	opacity: 1;
+}
+
+.banner .banner_item {
+	width: 200px;
+	height: 200px;
+	padding: 10px;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+}
+
+div.content {
+	padding: 10px;
+}
+
+div.content .main {
+	float: left;	
+	overflow: auto;
+}
+
+div.content .new_buttons #form input {
+	width: auto;
+}
+
+div.content .side {
+	width: 240px;
+	float: left;
+	overflow: auto;
+}
+
+div.content .side .container {
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+div.footer {
+	height: 50px;
+}
+
+div.footer .container {
+	height: 9px;
+}
+
+div.footer .copyrigth {
+	padding: 10px;
+	width: 150px;
+	margin: 0 auto;
+}
+
+div.list{
+
+}
+
+div.list .list_item {
+	width: 670px;
+	height: 100px;
+	padding: 10px;
+	border-bottom: 3px solid #00abec;
+}
+
+div.list .list_item .left{
+	width: 100px;
+	float: left;
+	padding-right: 10px;
+	height: 100px;	
+}
+
+div.list .list_item .right{
+	width: 560px;
+	height: 100px;
+	float: left;
+	overflow: hidden;
+}
+
+div.list .list_item .right a {
+	position: relative;
+	bottom: 21px;
+	float: right;
+}
+
+div.clearfix {
+	clear: both;
+}
+
+#gallery li {
+	list-style-type: none;
+	padding: 10px;
+	float: left;
+}
+
+.login {
+	width: 410px;
+	margin: 0 auto;
+}
+
+div#message {
+	background: red;
+	color: #fff;
+	
+	font-size: 20px;
+	padding: 10px;
+}
+
+div#message .text p{
+	text-align: center;
+	margin: 0 auto;
+}
+
+table {
+	border: 3px solid #f2f2f2;
+	width: 940px;
+	border-spacing: 0px;
+	margin-bottom: 25px;
+}
+table.last {
+	margin-bottom: 0px;
+}
+
+table  tr.odd {
+	Background: #f2f2f2;
+}
+
+table th.selector {
+	width: 21px;
+}
+
+table th.image {
+	width: 100px;
+}
+
+table th.name, table td.name {
+	padding-left: 10px;
+	text-align: left;
+}
+
+table th.edit, table th.delete {
+	width: 60px;
+}
+table th.visible {
+	width: 110px;
+}
+
+table td {
+	text-align: center;
+}
+
+.quick_acces {
+	width: 580px;
+	float: left;
+}
+
+.home_item {
+	margin: 10px;
+	padding: 10px;
+	width: 250px;
+	float: left;
+}
+
+.stats {
+	margin: 10px; 
+	padding: 10px;
+	width: 320px;
+	float: left;
+}
+.stats_table {
+	width: 320px;
+	color: white;
+	border: none;
+	margin-bottom: 0px;
+}

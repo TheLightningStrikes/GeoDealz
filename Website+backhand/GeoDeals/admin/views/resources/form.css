@@ -1,0 +1,62 @@
+/*********/
+/* Forms */
+/*********/
+
+#form {
+    padding: 10px;
+    float: left;
+}
+
+#form .field {
+    margin: 5px 0;
+    float: left;
+    clear: both;
+    width: 410px;
+}
+
+#form a.button {
+    padding: 5px 15px 5px 15px;
+    width: 100px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    position: relative;
+    top: 5px;
+}
+
+#form .field label {
+    float: left;
+    width: 200px;
+}
+
+#form .field.WYSIWYG {
+	width: 920px;
+}
+
+#form input, #form select, #form textarea {
+    background-color: #f2f2f2;
+    border-width: 0;
+    padding: 5px;
+    float: left;
+    width: 200px;
+    font-family: "Segoe UI";
+}
+
+#form select {
+	width: 210px;
+}
+
+#form input[type="submit"] {
+    float: right;
+    width: 100px;
+	background : #00abec;
+}
+
+
+/*************/
+/* Test form */
+/*************/
+.test_form {
+	height: 200px;
+}
+ 
