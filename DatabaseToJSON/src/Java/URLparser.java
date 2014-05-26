@@ -32,7 +32,7 @@ public class URLparser extends HttpServlet {
 	private String db = new String();
 	private String user = new String();
 	private String pw = new String();
-	private String directory = "C:\\results.json";
+	private String directory = "C:\\xampp\\results.json";
 	
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -90,7 +90,6 @@ public class URLparser extends HttpServlet {
 	private void selectQuery(String table, String rest) throws SQLException, IOException  {
 		DBConnectorSingleton DBC = DBConnectorSingleton.getInstance(ip, port, db, user, pw);
 		ArrayLists.clear();
-		System.out.println(ArrayLists.isEmpty()+" HIERO");
 
 		for (int i = 1; i < ParameterArray.size()+1; i++) {
 			Queries.add(new QueryHandler(DBC.getDBConn(), ParameterArray.get(i-1), table, rest));

@@ -29,9 +29,9 @@ public class DBConnectorSingleton {
 		databaseConn = DriverManager.getConnection(databaseUrl, props);
 
 		if (databaseConn != null) {
-			System.out.println("Verbinding gemaakt.");
+			// log
 		} else {
-			System.out.println("Geen verbinding.");
+			// log
 		}
 	}
 
