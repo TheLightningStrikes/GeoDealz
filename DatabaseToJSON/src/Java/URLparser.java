@@ -32,7 +32,7 @@ public class URLparser extends HttpServlet {
 	private String db = new String();
 	private String user = new String();
 	private String pw = new String();
-	private String directory = "C:\\xampp\\results.json";
+	private String directory = "C:\\xampp\\htdocs\\results.json";
 	
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
