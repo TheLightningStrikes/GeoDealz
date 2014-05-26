@@ -13,6 +13,9 @@
     clear: both;
     width: 410px;
 }
+#form .field.wide {
+	width: 920px;
+}
 
 #form a.button {
     padding: 5px 15px 5px 15px;
@@ -28,6 +31,7 @@
     float: left;
     width: 200px;
 }
+
 
 #form .field.WYSIWYG {
 	width: 920px;

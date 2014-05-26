@@ -41,7 +41,6 @@ class deals_model extends Model {
 		return $query->fetchAll();
 	}
 	
-	
 	function GetLimitedDealByID($id)
 	{
 		$user_id = Session::get("User")->GetId();
@@ -55,6 +54,18 @@ class deals_model extends Model {
 		return $query->fetchAll();
 	}
 	
+	function GetLocationDealByID($id)
+	{
+		$user_id = Session::get("User")->GetId();
+		
+		$query = $this->database->prepare("SELECT d.id as deal_id, d.naam as deal_naam, d.omschrijving as omschrijving, d.deal as deal_image, d.type as deal_type, dd.x as x, dd.y as y FROM tbldeal d
+											INNER JOIN tbldeallocation dd ON d.id = dd.deal_id 
+											WHERE user_id = :user_id AND d.id = :id;");
+        $query->execute(array(':user_id' => $user_id, 
+								':id' => $id));
+							  
+		return $query->fetchAll();
+	}
 	
 	function save_normal($data)
 	{
@@ -126,6 +137,37 @@ class deals_model extends Model {
 								  ':deal_id' => $id));
 	}
 	
+	function save_location($data)
+	{
+		$user_id = Session::get("User")->GetId();
+		
+		$deal = $data['image'];
+		$naam = $data['naam'];
+		$type = $data['dealtype'];
+		$omschrijving = $data['omschrijving'];
+		
+		$coords = substr($data['location'], 1, strlen($data['location']) - 2);
+		$coords = explode(',', $coords);
+		
+		$x = $coords[0];
+		$y = $coords[1];
+		
+		$query = $this->database->prepare("INSERT INTO tbldeal (naam, deal, omschrijving, user_id, type) VALUES (:naam, :deal, :omschrijving, :user_id, :type);");
+        $query->execute(array(':deal' => $deal,
+							  ':naam' => $naam,
+							  ':omschrijving' => $omschrijving,
+							  ':user_id' => $user_id,
+							  ':type' => $type));
+				
+		$id = $this->database->lastInsertId(); 
+				
+		$limitdeal = $this->database->prepare("INSERT INTO tbldeallocation (x, y, deal_id) VALUES (:x, :y, :deal_id);");
+				
+		$limitdeal->execute(array(':x' => $x,
+								  ':y' => $y,
+								  ':deal_id' => $id));
+	}
+	
 	function update_normal($data)
 	{	
 		$deal = $data['image'];
@@ -194,6 +236,38 @@ class deals_model extends Model {
 											   
 		$limitQuery->execute(array(':amount' => $limit,
 								   ':deal_id' => $id));
+	}
+	
+	function update_location($data)
+	{	
+		$id = $data['id'];
+		$deal = $data['image'];
+		$naam = $data['naam'];
+		$omschrijving = $data['omschrijving'];
+		
+		$coords = substr($data['location'], 1, strlen($data['location']) - 2);
+		$coords = explode(',', $coords);
+		
+		$x = $coords[0];
+		$y = $coords[1];
+			
+
+		$user_id = Session::get("User")->GetId();
+		
+		$query = $this->database->prepare("UPDATE tbldeal SET naam = :naam, deal = :deal, omschrijving = :omschrijving
+											WHERE id = :id AND user_id = :user_id");
+        $query->execute(array(':deal' => $deal,
+							  ':naam' => $naam,
+							  ':omschrijving' => $omschrijving,
+							  ':user_id' => $user_id,
+							  ':id' => $id));
+						
+		$limitQuery = $this->database->prepare("UPDATE tbldeallocation SET x = :x, y = :y
+											   WHERE deal_id = :deal_id");
+											   
+		$limitQuery->execute(array(':x' => $x,
+								   ':y' => $y,
+ 								   ':deal_id' => $id));
 	}
 	
 	function delete($id)

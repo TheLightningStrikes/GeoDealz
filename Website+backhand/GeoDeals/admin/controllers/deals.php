@@ -36,6 +36,9 @@ class deals extends Controller
 			case "edit_limited":
 				$this->edit_limited($args);
 				break;
+			case "edit_location":
+				$this->edit_location($args);
+				break;
 			case "save_normal":
 				$this->save_normal();
 				break;
@@ -44,6 +47,9 @@ class deals extends Controller
 				break;
 			case "save_limited":
 				$this->save_limited();
+				break;
+			case "save_location":
+				$this->save_location();
 				break;
 			case "login":
 				$this->view->render("Login/index");
@@ -63,6 +69,9 @@ class deals extends Controller
 				break;
 			case "update_limited":
 				$this->update_limited();
+				break;
+			case "update_location":
+				$this->update_location();
 				break;
 			case "delete":
 				$this->delete($args);
@@ -152,6 +161,13 @@ class deals extends Controller
 		Header("Location:" . URL . "deals");
 	}
 		
+	function save_location()
+	{
+		$data = $this->prepareSaveData();
+		$this->model->save_location($data);
+		Header("Location:" . URL . "deals");
+	}	
+		
 	function update_normal()
 	{
 		$data = $this->prepareSaveData();
@@ -173,6 +189,12 @@ class deals extends Controller
 		Header("Location:" . URL . "deals");
 	}
 	
+	function update_location()
+	{
+		$data = $this->prepareSaveData();
+		$this->model->update_location($data);
+		Header("Location:" . URL . "deals");
+	}
 	function edit($args)
 	{
 		$data = $this->model->GetDealByID($args[0]);
@@ -210,6 +232,20 @@ class deals extends Controller
 		$this->view->limit = $data[0]['amount'];
 		
 		$this->view->render(__CLASS__ .'/limited/edit');
+	}
+	
+	function edit_location($args)
+	{
+		$data = $this->model->GetLocationDealByID($args[0]);
+		
+		$this->view->id = $data[0]['deal_id'];
+		$this->view->naam = $data[0]['deal_naam'];
+		$this->view->deal = $data[0]['deal_image'];
+		$this->view->omschrijving = $data[0]['omschrijving'];
+		$this->view->x = $data[0]['x'];
+		$this->view->y = $data[0]['y'];
+		
+		$this->view->render(__CLASS__ .'/location/edit');
 	}
 	
 	function delete($args)

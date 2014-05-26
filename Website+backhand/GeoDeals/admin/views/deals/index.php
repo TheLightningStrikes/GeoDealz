@@ -54,6 +54,9 @@
 							case "limited":
 								$type = "Limited";
 								break;
+							case "location":
+								$type="Location";
+							break;
 						}
 						echo '<td class="type">'.$type.'</td>';	
 						
@@ -67,6 +70,9 @@
 							break;
 							case "limited":
 								echo '<td><a href=deals/edit_limited/'. $data['id'] . '>Edit</a></td>';	
+							break;
+							case "location":
+								echo '<td><a href=deals/edit_location/'. $data['id'] . '>Edit</a></td>';	
 							break;
 						}
 						
