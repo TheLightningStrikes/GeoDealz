@@ -14,7 +14,14 @@ public class DBConnectorSingleton {
 	// set up connection with database
 	private DBConnectorSingleton(String host, String port, String dbname,
 			String user, String pw) throws SQLException {
-		databaseUrl = "jdbc:postgresql://" + host + ":" + port + "/" + dbname;
+		
+		try {
+		    Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+		    throw new RuntimeException("Cannot find the driver in the classpath!", e);
+		}
+		
+		databaseUrl = "jdbc:mysql://" + host + ":" + port + "/" + dbname;
 		props = new Properties();
 		props.setProperty("user", user);
 		props.setProperty("password", pw);
@@ -38,11 +45,11 @@ public class DBConnectorSingleton {
 		if (uniqueInstance == null) {
 			uniqueInstance = new DBConnectorSingleton(host, port, dbname, user,
 					pw);
-			System.out.println("Ik ben aangemaakt!");
 		} else {
-			System.out.println("Ik ben al aangemaakt!");
+			// log error
 		}
 		return uniqueInstance;
 
 	}
+	
 }
