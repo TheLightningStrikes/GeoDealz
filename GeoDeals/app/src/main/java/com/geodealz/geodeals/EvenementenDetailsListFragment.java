@@ -1,6 +1,6 @@
 package com.geodealz.geodeals;
 
-
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
@@ -32,7 +32,13 @@ public class EvenementenDetailsListFragment extends ListFragment {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
-        ListFragment frag = new EvenementenDetailsListFragment();
+        Bundle data = new Bundle();
+
+        data.putString("actietekst", "Actie Pagina");
+
+        Fragment frag = new EvenementenDetailsActiesFragment();
+
+        frag.setArguments(data);
 
         ft.remove(fm.findFragmentById(R.id.evenement_details_fragment));
         ft.replace(R.id.evenement_details_fragment, frag);

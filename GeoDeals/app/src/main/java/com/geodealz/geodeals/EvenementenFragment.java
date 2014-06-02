@@ -52,11 +52,11 @@ public class EvenementenFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), EvenementenDetailsActivity.class);
                 switch (position){
-                    case 0:
-                        intent.putExtra("data", "HOIJDSF KJLFSJDKJKDJ DSJKF KJLDSSJ KDFJKFD SKJLF DKLJF JLKDJ KLSFDJK LFDJSKLJL SDFJ KDSLFKLJS FDKJLFSDKJLSFDJKL");
-                        break;
+//                    case 0:
+//                        intent.putExtra("data", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt nulla, ac ultricies nibh. Suspendisse sollicitudin odio sed metus lobortis iaculis.");
+//                        break;
                     default:
-                        intent.putExtra("data", "DEFAULT TEXTTT");
+                        intent.putExtra("data", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et tincidunt nulla, ac ultricies nibh. Suspendisse sollicitudin odio sed metus lobortis iaculis.");
                         break;
                 }
                 Object listItem = listview.getItemAtPosition(position);
