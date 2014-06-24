@@ -3,21 +3,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/parent_of_bottom_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
     <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/ic_launcher" />
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/splash_screen_top"
+        android:layout_weight="1"
+        android:id="@+id/image1"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/splash_screen_bottom"
+        android:layout_weight="1"
+        android:layout_below="@+id/image1"/>
+    </LinearLayout>
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textSize="12dp"
-        android:textColor="#454545"
+        android:textSize="50sp"
+        android:textColor="#ffffffff"
         android:gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:text="GeoDeals" />
+        android:text="GeoDeals"
+        android:id="@+id/textView"
+        android:layout_above="@+id/imageView"
+        android:layout_marginBottom="40dp" />
 
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/applogo"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

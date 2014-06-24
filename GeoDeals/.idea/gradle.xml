@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\Users\pepij_000\Dropbox\School\INF02\Periode 4\GeoDeals" />
-            <option value="C:\Users\pepij_000\Dropbox\School\INF02\Periode 4\GeoDeals\app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
       </GradleProjectSettings>

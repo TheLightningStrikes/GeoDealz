@@ -17,11 +17,10 @@ public class QueryHandler {
 		result = doSelect(column, table, rest);
 	}
 
-
-
 	// SQL query, SELECT "column" from "table"
 	public ArrayList<String> doSelect(String column, String table, String rest) {
 		String query = "SELECT " + column + " FROM " + table + rest;
+		
 		result.clear();
 
 		try {
@@ -37,7 +36,6 @@ public class QueryHandler {
 		} catch (SQLException ex) {
 			System.err.println(ex.getMessage());
 		}
-
 		return result;
 	}
 	

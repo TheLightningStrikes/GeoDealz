@@ -10,5 +10,13 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_evenementen_details_acties_fragment">EvenementenDetailsActiesFragment</string>
+    <string name="settings">Instellingen</string>
+    <string name="about">Over GeoDeals</string>
+    <string name="title_activity_settings">Instellingen</string>
+    <string name="title_activity_abount_geo_dealz">Over GeoDeals</string>
+    <string name="over_geodeals">Wij zijn de groep Geodeals. Bestaande uit Deborah Gaanderse , Boy Gorissen , Pepijn Stroo en Willem Turkstra. Wij volgen de opleiding Informatica in het tweede jaar (klas INF2B). Onze opdracht was om een App te maken die gebruik maakte van vernieuwende technieken en die iets te maken had met evenementen. Wij zijn een hardwerkend team dat passie heeft voor het ontwikkelen van Apps en websites en vonden het leuk aan dit product te werken en het tot een goed einde te brengen.</string>
+    <string name="title_activity_notification_deal">Speciale Locatie Deal</string>
+    <string name="title_activity_nfc">NFC Deal</string>
 
 </resources>

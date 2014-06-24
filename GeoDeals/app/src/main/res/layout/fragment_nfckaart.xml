@@ -12,15 +12,18 @@
         <fragment
             android:id="@+id/map"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="match_parent"
             class="com.google.android.gms.maps.SupportMapFragment" />
 
-        <fragment
-            android:id="@+id/information"
-            android:name="com.geodealz.geodeals.EvenementenDetailsListFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/map"
-            />
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/imageView"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:paddingBottom="30dp"
+            android:paddingLeft="5dp"
+            android:src="@drawable/button_info_icon"/>
+
     </RelativeLayout>
 </FrameLayout>
