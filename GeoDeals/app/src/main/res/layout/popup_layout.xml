@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:id="@+id/popup"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_popup"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NFC Markers"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="8dp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Elke NFC Marker op de kaart stelt een geweldige NFC Deal voor! Ga naar de locatie van de Deal, scan de speciale GeoDeals NFC tag en maak gebruik van jouw super korting!"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_horizontal_margin"/>
+
+</LinearLayout>

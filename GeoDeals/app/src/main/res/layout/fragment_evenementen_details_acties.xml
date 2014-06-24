@@ -1,18 +1,102 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:paddingLeft="@dimen/activity_horizontal_margin"
-android:paddingRight="@dimen/activity_horizontal_margin"
-android:paddingTop="@dimen/activity_vertical_margin"
-android:paddingBottom="@dimen/activity_vertical_margin"
-tools:context="com.geodealz.geodeals.EvenementenDetailsActiesFragment">
 
-<TextView
-    android:text="@string/hello_world"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/acties_text"
-    android:textSize="18sp"/>
+tools:context="com.geodealz.geodeals.EventDetailsListFragmentDeal">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="0,1,2">
 
-</RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">>
+
+            <TextView
+                android:text="@string/hello_world"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/acties_text"
+                android:textSize="18sp"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:id="@+id/special_deals"
+                android:layout_alignParentRight="true"
+                android:paddingTop="18dp"
+                android:paddingRight="@dimen/activity_horizontal_margin"/>
+
+        </RelativeLayout>
+
+        <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/ic_launcher"
+        android:background="@drawable/bg_deal"
+        android:layout_below="@+id/acties_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+            android:text="@string/hello_world"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/omschrijving"
+            android:textSize="18sp"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RatingBar
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar"
+                android:layout_centerHorizontal="true"/>
+
+            <Button
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Breng uw stem uit!"
+                android:id="@+id/stem_button"
+                android:layout_below="@+id/ratingBar"
+                android:background="#ff024ca8"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Deal activeren."
+                android:id="@+id/activatedeal_button"
+                android:layout_below="@+id/stem_button"
+                android:visibility="gone"
+                android:layout_marginTop="5dp"
+                android:background="#ff024ca8"
+                android:layout_marginBottom="10dp"/>
+        </RelativeLayout>
+    </TableLayout>
+</ScrollView>

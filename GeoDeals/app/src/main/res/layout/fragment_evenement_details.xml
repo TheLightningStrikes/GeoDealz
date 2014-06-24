@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.geodealz.geodeals.EvenementenDetailsActivity">
+    tools:context="com.geodealz.geodeals.EventDetailsActivity">
 
     <ImageView
         android:id="@+id/thumbnail_view"
@@ -11,7 +11,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="false"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"/>
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:maxWidth="70dp"/>
 
     <TextView android:id="@+id/message_view"
         android:layout_width="match_parent"
@@ -27,7 +30,7 @@
         android:background="@drawable/line_bg"/>
 
     <FrameLayout
-        android:id="@+id/evenement_details_fragment"
+        android:id="@+id/deal_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/message_view"/>
