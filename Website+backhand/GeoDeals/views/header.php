@@ -4,19 +4,21 @@
 		<title>
 			<?php echo APPLICATION_NAME; ?>
 		</title>
-                <link rel="stylesheet" href="<?php echo URL; ?>views/resources/style.css" />
-		<link rel="stylesheet" href="<?php echo URL; ?>views/resources/color.css" />
-                <script type="text/javascript" src="<?php echo URL; ?>tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
-                <script type="text/javascript" src="<?php echo URL; ?>javascript/form.js"></script>
+			<link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+			<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+			<link rel="stylesheet" href="<?php echo URL; ?>views/resources/style.css" />
+			<link rel="stylesheet" href="<?php echo URL; ?>views/resources/color.css" />
+            <script type="text/javascript" src="<?php echo URL; ?>tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+            <script type="text/javascript" src="<?php echo URL; ?>javascript/form.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
 			<div id="banner">
 				<h2 style="padding: 25px 0px 0px 25px"	>
-				Epische slogan van ons
+				Voor de beste Deals
 				</h2>
-				<h2 style="padding: 0px 0px 0px 100px">
-				Zeer epische bedrijf ofcourse!
+				<h2 style="padding: 0px 0px 0px 150px">
+				Neem GeoDeals
 				</h2>
 				<div class="logo">
 				<img src="<?php echo URL ?>/images/logosite.png" />

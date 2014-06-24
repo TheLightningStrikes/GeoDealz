@@ -1,0 +1,37 @@
+<?php
+
+class profiel extends Controller
+{
+	function __construct($args=array())
+	{
+		parent::__construct();
+        $this->loadModel();		
+        $function = "";
+        if(count($args) > 0)
+        {
+            $function = $args[0];
+            if(count($args) > 1)
+            {
+                $args = array_splice($args, 1);
+			}
+		}
+		switch($function)
+		{
+			default:
+				$this->error("No Data");
+				break;
+		}
+	}
+	
+	function loadModel()
+	{
+		
+	}
+	
+	function error($error)
+	{
+		 $var = array("error" => $error );
+		 
+		 print(json_encode($var));
+	}
+}

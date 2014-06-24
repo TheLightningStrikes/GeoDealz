@@ -52,15 +52,14 @@ class Login extends Controller
     {
 		$user = $this->model->checkLogin();
         $oUser = null;      
-        
 		
-		
-        if(isset($user))
-            $oUSer = new User($user[0]['id'], $user[0]['name'], $user[0]['password']);
-        
+        if(isset($user)){
+			$oUser = new User($user[0]['id'], $user[0]['name'], $user[0]['password'], $user[0]['type']);
+		}
+        		
         if($user){			
             Session::set("isLoggedIn", true); 
-            Session::set("User", $oUSer);
+            Session::set("User", $oUser);
             Header("Location:" . URL);
         }
         else

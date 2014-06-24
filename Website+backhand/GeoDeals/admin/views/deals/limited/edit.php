@@ -24,6 +24,18 @@ if(isset($this->msg))
 <div class="content light">
 	<form id="form" class="center" action="<?php echo URL; ?>deals/update_limited" enctype="multipart/form-data" method="POST">
 		<div class="field">
+            <label for="evenement">Evenement: </label>
+            <select name="evenement">
+				<?php 
+				foreach($this->evenementen as $evenement)
+				{
+					$selected = ($evenement['id'] == $this->profiel_id) ? "selected" : "";
+					echo "<option $selected value=".$evenement['id'].">" . $evenement['naam'] . "</option>";
+				}
+				?>
+			</select>
+        </div>
+		<div class="field">
             <label for="naam">Naam: </label>
             <input type="text" name="naam" value="<?php echo $this->naam; ?>" />
         </div>	

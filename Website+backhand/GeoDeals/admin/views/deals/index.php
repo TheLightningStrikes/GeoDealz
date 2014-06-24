@@ -18,16 +18,17 @@
 	
 	
 	<table>
-		<caption class="blue"><h3>Deals</h3></caption>
-		<thead>
+		<caption class="dark"><h3>Deals</h3></caption>
+		<thead >
 		<?php
 		if(count($this->data) > 0){
 		?>
-			<th class="image">Deal</th>
-			<th class="name">Name</th>
-			<th class="type">Type</th>
-			<th class="edit">Edit</th>
-			<th class="delete">Delete</th>
+			<tr class="odd">
+				<th class="image">Deal</th>
+				<th class="name">Name</th>
+				<th class="type">Type</th>
+				<th class="actions">Actions</th>
+			</tr>
 			<!--<th class="visible">Is zichtbaar</th>-->
 		<?php
 		}
@@ -39,10 +40,10 @@
 		
 				foreach($this->data as $data)
 				{
-					$class= (++$count%2 ? "odd" : "even");
+					$class= (++$count%2 ? "even" : "odd");
 				
 					echo '<tr class=' . $class. '>';
-						echo '<td class="image"><img src="'.IMAGE_URL . $data['deal']  .'" width="100" /></td>';
+						echo '<td class="image"><img src="'.IMAGE_URL . $data['deal']  .'" width="100" height="100" /></td>';
 						echo '<td class="name">' . $data['naam'] . '</td>';		
 						
 						$type = "Normaal";
@@ -63,21 +64,21 @@
 						switch($data['type'])
 						{
 							case "normal":
-								echo '<td><a href=deals/edit/'. $data['id'] . '>Edit</a></td>';	
+								echo '<td class="actions"><a class="button" href=deals/edit/'. $data['id'] . '>Edit</a>';	
 							break;
 							case "date":
-								echo '<td><a href=deals/edit_date/'. $data['id'] . '>Edit</a></td>';	
+								echo '<td class="actions"><a class="button" href=deals/edit_date/'. $data['id'] . '>Edit</a>';	
 							break;
 							case "limited":
-								echo '<td><a href=deals/edit_limited/'. $data['id'] . '>Edit</a></td>';	
+								echo '<td class="actions"><a class="button" href=deals/edit_limited/'. $data['id'] . '>Edit</a>';	
 							break;
 							case "location":
-								echo '<td><a href=deals/edit_location/'. $data['id'] . '>Edit</a></td>';	
+								echo '<td class="actions"><a class="button" href=deals/edit_location/'. $data['id'] . '>Edit</a>';	
 							break;
 						}
 						
 						
-						echo '<td><a href=deals/delete/' . $data['id'] . '>Delete</a></td>';	
+						echo '<a class="button" href=deals/delete/' . $data['id'] . '>Delete</a></td>';	
 						/*echo '<td class="visible">' . (($data['visible'] == 1)? '<img src="'. URL .'images/accept.png" />'  : '<img src="'. URL .'images/delete.png" />') .  '</td>';	*/
 			
 					echo '</tr>';

@@ -141,6 +141,10 @@ div.content .side .container {
 	margin-bottom: 10px;
 }
 
+#previewHolder {
+	max-width: 920px;
+}
+
 div.footer {
 	height: 50px;
 }
@@ -245,9 +249,23 @@ table th.name, table td.name {
 	text-align: left;
 }
 
-table th.edit, table th.delete {
-	width: 60px;
+.actions {
+	width: 100px;
 }
+.actions .button {
+	background: #00abec;
+	color: #fff;
+	padding: 5px 10px;
+	width: 90px;
+	display: block;
+	margin: 10px;
+}
+
+.actions .button:visited{
+		color: white;
+}
+
+
 table th.visible {
 	width: 110px;
 }
@@ -280,3 +298,51 @@ table td {
 	border: none;
 	margin-bottom: 0px;
 }
+
+.rating {
+	height: 85px;
+	width: 430px;
+	float: left;
+	padding: 10px;
+	margin: 10px;
+}
+
+.rating h3 
+{
+	margin:auto;
+    line-height:50px;
+    vertical-align:middle;
+}
+
+.rating hp
+{
+	margin:auto;
+    line-height:50px;
+    vertical-align:middle;
+}
+
+.rate_img {
+	float: left;
+	margin-right: 10px;
+}
+
+.rate {
+	float: left;
+    text-align:center;
+	width: 100%;
+}
+
+.global {
+	padding: 10px;
+	margin: 10px;
+}
+
+.global span {
+	display:block;
+	width:245px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+
+

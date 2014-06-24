@@ -5,7 +5,9 @@
 			CMS Geodeals
 		</title>
 			<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-		
+			<link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+			<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+			
 			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 			<!--styles-->
 			<link rel="stylesheet" href="<?php echo URL; ?>views/resources/style.css" />

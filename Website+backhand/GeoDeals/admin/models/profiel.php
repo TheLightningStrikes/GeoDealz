@@ -22,6 +22,49 @@ class profiel_model extends Model {
 		return null;
 	}
 	
+	function GetProfielByUserID($id)
+	{
+		$user_id = $id;
+        
+        $query = $this->database->prepare("SELECT * FROM tblprofiel WHERE user_id = :user_id");
+        $query->execute(array(':user_id' => $user_id));
+               
+        $count =  $query->rowCount();
+        if($count > 0)
+        {
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+		return null;
+	}
+	
+	function GetAllProfielen()
+	{
+		$query = $this->database->prepare("SELECT p.* FROM tblprofiel p
+										   INNER JOIN tbluser u ON p.user_id = u.id
+										   WHERE u.type = 'evenement';");
+        $query->execute();
+               
+        $count =  $query->rowCount();
+        if($count > 0)
+        {
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+		return null;
+	}
+	
+	function GetDeals($user_id)
+	{
+		$query = $this->database->prepare("SELECT * FROM tbldeal WHERE user_id = :user_id");
+		$query->execute(array(":user_id" => $user_id));
+		
+		$count =  $query->rowCount();
+        if($count > 0)
+        {
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+		return null;
+	}
+	
 	function Save($data)
 	{
 		$user_id = Session::get("User")->GetId();

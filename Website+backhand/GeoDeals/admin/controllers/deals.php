@@ -4,7 +4,6 @@ class deals extends Controller
 {
 	function __construct($args=array())
 	{
-	
 		parent::__construct();
         $this->loadModel();		
         $function = "";
@@ -17,78 +16,100 @@ class deals extends Controller
             }
         }	
 		
-		
-		
 		if(!User::isAuthenticated(1))
 		{
 			$function = "login";
-			$args = null;
+			$this->view->render("Login/index");
+			return;
 		}
-		switch($function)
+		else
 		{
-			
-			case "edit":
-				$this->edit($args);
-				break;
-			case "edit_date":
-				$this->edit_date($args);
-				break;
-			case "edit_limited":
-				$this->edit_limited($args);
-				break;
-			case "edit_location":
-				$this->edit_location($args);
-				break;
-			case "save_normal":
-				$this->save_normal();
-				break;
-			case "save_date":
-				$this->save_date();
-				break;
-			case "save_limited":
-				$this->save_limited();
-				break;
-			case "save_location":
-				$this->save_location();
-				break;
-			case "login":
-				$this->view->render("Login/index");
-				break;
-			case "new_normal":
-				$this->new_normal_deal();
-				break;
-			case "normal_image_error":
-				$this->view->msg = "Het plaatje wat u probeerd te uploaden is te groot.\n Probeer een kleiner plaatje";
-				$this->new_normal_deal();
-				break;
-			case "update_normal":
-				$this->update_normal();
-				break;
-			case "update_date":
-				$this->update_date();
-				break;
-			case "update_limited":
-				$this->update_limited();
-				break;
-			case "update_location":
-				$this->update_location();
-				break;
-			case "delete":
-				$this->delete($args);
-				break;
-			case "new_date":
-				$this->new_date_deal();
-				break;
-			case "new_limited":
-				$this->new_limited_deal();
-				break;
-			case "new_location":
-				$this->new_location_deal();
-				break;
-			default:
-				$this->loadDeals();
-				break;
+			$user_type = Session::get("User")->GetType();
 		}
+		if($user_type == "bedrijf"){
+			switch($function)
+			{
+				case "edit":
+					$this->edit($args);
+					break;
+				case "edit_date":
+					$this->edit_date($args);
+					break;
+				case "edit_limited":
+					$this->edit_limited($args);
+					break;
+				case "edit_location":
+					$this->edit_location($args);
+					break;
+				case "save_normal":
+					$this->save_normal();
+					break;
+				case "save_date":
+					$this->save_date();
+					break;
+				case "save_limited":
+					$this->save_limited();
+					break;
+				case "save_location":
+					$this->save_location();
+					break;
+				case "login":
+					$this->view->render("Login/index");
+					break;
+				case "new_normal":
+					$this->new_normal_deal();
+					break;
+				case "normal_image_error":
+					$this->view->msg = "Het plaatje wat u probeerd te uploaden is te groot.\n Probeer een kleiner plaatje";
+					$this->new_normal_deal();
+					break;
+				case "update_normal":
+					$this->update_normal();
+					break;
+				case "update_date":
+					$this->update_date();
+					break;
+				case "update_limited":
+					$this->update_limited();
+					break;
+				case "update_location":
+					$this->update_location();
+					break;
+				case "delete":
+					$this->delete($args);
+					break;
+				case "new_date":
+					$this->new_date_deal();
+					break;
+				case "new_limited":
+					$this->new_limited_deal();
+					break;
+				case "new_location":
+					$this->new_location_deal();
+					break;
+				default:
+					$this->loadDeals();
+					break;
+			}
+		}
+		else if($user_type =="evenement")
+		{
+			switch($function)
+			{	
+				case "approve":
+					$this->model->approve($args[0]);
+					Header("Location:" . URL . "index");
+					break;
+				case "deny":
+					$this->model->deny($args[0]);
+					Header("Location:" . URL . "index");
+					break;
+				default:
+					Header("Location:" . URL . "index");
+					break;
+			}
+		}
+		
 	}
 	
 	function loadModel()
@@ -105,21 +126,29 @@ class deals extends Controller
 	
 	function new_normal_deal()
 	{
+		$this->view->evenementen = $this->model->GetEvenementen();
+	
 		$this->view->render(__CLASS__ .'/normal/new');
 	}
 	
 	function new_date_deal()
 	{
+		$this->view->evenementen = $this->model->GetEvenementen();
+	
 		$this->view->render(__CLASS__ .'/date/new');
 	}
 	
 	function new_location_deal()
 	{
+		$this->view->evenementen = $this->model->GetEvenementen();
+	
 		$this->view->render(__CLASS__ .'/location/new');
 	}
 	
 	function new_limited_deal()
 	{
+		$this->view->evenementen = $this->model->GetEvenementen();
+	
 		$this->view->render(__CLASS__ .'/limited/new');
 	}
 	
@@ -195,14 +224,18 @@ class deals extends Controller
 		$this->model->update_location($data);
 		Header("Location:" . URL . "deals");
 	}
+	
 	function edit($args)
 	{
 		$data = $this->model->GetDealByID($args[0]);
 		
+		$this->view->evenementen = $this->model->GetEvenementen();
+	
 		$this->view->id = $data[0]['id'];
 		$this->view->naam = $data[0]['naam'];
 		$this->view->deal= $data[0]['deal'];	
 		$this->view->omschrijving = $data[0]['omschrijving'];
+		$this->view->profiel_id = $data[0]['profiel_id'];
 	
 		$this->view->render(__CLASS__ .'/normal/edit');
 	}
@@ -211,10 +244,14 @@ class deals extends Controller
 	{
 		$data = $this->model->GetDateDealByID($args[0]);
 		
+		$this->view->evenementen = $this->model->GetEvenementen();
+	
 		$this->view->id = $data[0]['deal_id'];
 		$this->view->naam = $data[0]['deal_naam'];
 		$this->view->deal = $data[0]['deal_image'];
 		$this->view->omschrijving = $data[0]['omschrijving'];
+		$this->view->profiel_id = $data[0]['profiel_id'];
+	
 		$this->view->startdatum = $data[0]['startdatum'];
 		$this->view->einddatum = $data[0]['einddatum'];
 		
@@ -225,10 +262,14 @@ class deals extends Controller
 	{
 		$data = $this->model->GetLimitedDealByID($args[0]);
 		
+		$this->view->evenementen = $this->model->GetEvenementen();
+	
 		$this->view->id = $data[0]['deal_id'];
 		$this->view->naam = $data[0]['deal_naam'];
 		$this->view->deal = $data[0]['deal_image'];
 		$this->view->omschrijving = $data[0]['omschrijving'];
+		$this->view->profiel_id = $data[0]['profiel_id'];
+	
 		$this->view->limit = $data[0]['amount'];
 		
 		$this->view->render(__CLASS__ .'/limited/edit');
@@ -238,10 +279,14 @@ class deals extends Controller
 	{
 		$data = $this->model->GetLocationDealByID($args[0]);
 		
+		$this->view->evenementen = $this->model->GetEvenementen();
+	
 		$this->view->id = $data[0]['deal_id'];
 		$this->view->naam = $data[0]['deal_naam'];
 		$this->view->deal = $data[0]['deal_image'];
 		$this->view->omschrijving = $data[0]['omschrijving'];
+		$this->view->profiel_id = $data[0]['profiel_id'];
+	
 		$this->view->x = $data[0]['x'];
 		$this->view->y = $data[0]['y'];
 		
@@ -250,7 +295,6 @@ class deals extends Controller
 	
 	function delete($args)
 	{
-		
 		if(isset($args) && !empty($args))
 		{
 			$id = $args[0];

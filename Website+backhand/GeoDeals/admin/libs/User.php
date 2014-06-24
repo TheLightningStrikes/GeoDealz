@@ -7,15 +7,18 @@ class User{
     private $_id;
     private $_username;
     private $_password;
+	private $_type;
     
     public function GetId(){ return $this->_id; }
     public function GetUsername(){ return $this->_username; }
-    
-    function __construct($id, $name, $password)
+    public function GetType() { return $this->_type; }
+	
+    function __construct($id, $name, $password, $type)
     {
         $this->_id = $id;
         $this->_username = $name;
         $this->_password = $password;
+		$this->_type = $type;
     }
     
     public static function GetUsernameByID($id)

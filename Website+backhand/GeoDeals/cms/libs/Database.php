@@ -7,7 +7,7 @@ class Database extends PDO
     function __construct()
     {
         try{
-            parent::__construct("mysql:host=localhost;dbname=geodealscms", "root", "");
+            parent::__construct("mysql:host=145.24.222.188;port=8010;dbname=geodealscms", "geodatabase", "weetikniet");
         }
         catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();

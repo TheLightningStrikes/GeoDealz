@@ -35,7 +35,7 @@ class index extends Controller
                 $this->view->render(__CLASS__ . '/index');
                 break;
             default:
-                 $this->loadView();
+				$this->loadViewByUserType();
             break;
         }
     }
@@ -43,8 +43,34 @@ class index extends Controller
     function loadModel()
     {
         require 'models/'. __CLASS__ . '.php';  
-        $this->model = new index_model();
+        require 'models/deals.php';
+		
+		$this->model = new index_model();
+		$this->deals_model = new deals_model();
     }
+	
+	function loadViewByUserType()
+	{
+		$user = Session::get("User");
+		
+		switch($user->GetType())
+		{
+			case "evenement":
+				$this->loadEvenementView();
+			break;
+			case "bedrijf":
+				$this->loadView();
+			break;
+		}
+	}
+	
+	function loadEvenementView()
+	{
+		$data = $this->deals_model->GetDealsForEvenement();
+		
+		$this->view->data = $data;	
+		$this->view->render(__CLASS__ . '/index_evenement');
+	}
 	
 	function loadView()
 	{
@@ -53,4 +79,6 @@ class index extends Controller
 		$this->view->data = $data;
 		$this->view->render(__CLASS__ . '/index');
 	}
+	
+	
 }

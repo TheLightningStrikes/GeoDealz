@@ -45,6 +45,23 @@
     width: 200px;
     font-family: "Segoe UI";
 }
+#form .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	border: none;
+	background: none;
+}
+
+#form .ui-spinner.ui-widget.ui-widget-content.ui-corner-all {
+	border-radius: 0px;
+}
+
+#form .ui-spinner.ui-widget.ui-widget-content.ui-corner-all {
+	border-radius: none;
+	border: none;
+}
+
+#form .ui-spinner-input {
+	margin: 0;
+}
 
 #form select {
 	width: 210px;

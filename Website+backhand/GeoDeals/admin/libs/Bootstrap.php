@@ -7,15 +7,25 @@ class Bootstrap
         $url = isset($_GET['url']) ? $_GET['url'] : 'index';
         $url = explode('/', $url);
 
+		
         $args = array();
-
-        $file_name = $url[0];
-        if(count($url) > 1)
-        {	
-            $args = array_splice($url, 1);
-        }
-	
-        $file_location = "controllers/" . $file_name . ".php" ;	
+		
+		if(count($url) >= 2 && $url[0] == "api")
+		{		
+			$file_name = $url[1];
+			$file_location = "controllers/api/"  . $file_name . ".php" ;	
+			$args = array_splice($url, 2);
+		}
+		else
+		{
+			$file_name = $url[0];
+			$file_location = "controllers/"  . $file_name . ".php" ;	
+			if(count($url) > 1)
+			{	
+				$args = array_splice($url, 1);
+			}
+		}
+		
         if(file_exists($file_location))
         {      
             require $file_location;

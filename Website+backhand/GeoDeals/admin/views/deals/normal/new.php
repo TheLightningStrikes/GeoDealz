@@ -20,10 +20,20 @@ if(isset($this->msg))
 {	
 	echo ShowMessage($this->msg);
 }
-
 ?>
 <div class="content light">
 	<form id="form" class="center" action="<?php echo URL; ?>deals/save_normal" enctype="multipart/form-data" method="POST">
+		<div class="field">
+            <label for="evenement">Evenement: </label>
+            <select name="evenement">
+				<?php 
+				foreach($this->evenementen as $evenement)
+				{
+					echo "<option value=".$evenement['id'].">" . $evenement['naam'] . "</option>";
+				}
+				?>
+			</select>
+        </div>
 		<div class="field">
             <label for="naam">Naam: </label>
             <input type="text" name="naam" value="" />
